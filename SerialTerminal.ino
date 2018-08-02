@@ -20,9 +20,7 @@ void loop() {
 
   switch (choice) {
     case 1:
-      eepromContent = readEEPROM();
-      //Serial.println(eepromContent);
-      Serial.println(eepromContent);
+      readEEPROM();
       break;
     case 2:
       showWriteMenu();
@@ -83,10 +81,12 @@ void showWriteMenu() {
     byte byteValue = readKeys[c];
     writeEEPROM(byteValue);
   }
+  Serial.print(readKeys);
+  Serial.println(" successfully saved!");
 }
 
-String readEEPROM() {
-  String data;
+void readEEPROM() {
+  Serial.print("EEPROM content: ");
   //for (int i = 0 ; i < EEPROM.length() ; i++) {
   for (int i = 0 ; i < addressLength ; i++) {       // to make it safe we limit out writing addresses
     byte byteValue = EEPROM.read(i);                //read EEPROM data at address i
@@ -94,7 +94,7 @@ String readEEPROM() {
     //data += byteValue;
     //data += ", ";
   }
-  return data;
+  Serial.println();
 }
 
 void clearEEPROM() {
@@ -105,6 +105,7 @@ void clearEEPROM() {
     }
   }
   address = 0;                                  //reset address counter
+  Serial.println("EEPROM cleared!");
 }
 
 void writeEEPROM(byte value) {
