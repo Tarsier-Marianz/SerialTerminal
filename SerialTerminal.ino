@@ -32,7 +32,8 @@ void loop() {
     case 5:
       break;
     default:
-      Serial.print("\t Error: Invalid command choice: \t");
+      Serial.println();
+      Serial.print("\t Error: Invalid command choice: ");
       Serial.println(readKeys); \
       printNewLine(2);
       break;
@@ -58,7 +59,6 @@ void showMenu() {
   Serial.println("\t2. Write EEPROM");
   Serial.println("\t3. Clear EEPROM");
   Serial.println("\t4. Reset Terminal");
-  Serial.println();
   Serial.print(">");
 }
 
@@ -81,11 +81,13 @@ void showWriteMenu() {
     byte byteValue = readKeys[c];
     writeEEPROM(byteValue);
   }
+  Serial.println();
   Serial.print(readKeys);
   Serial.println(" successfully saved!");
 }
 
 void readEEPROM() {
+  Serial.println();
   Serial.print("EEPROM content: ");
   //for (int i = 0 ; i < EEPROM.length() ; i++) {
   for (int i = 0 ; i < addressLength ; i++) {       // to make it safe we limit out writing addresses
@@ -105,6 +107,7 @@ void clearEEPROM() {
     }
   }
   address = 0;                                  //reset address counter
+  Serial.println();
   Serial.println("EEPROM cleared!");
 }
 
