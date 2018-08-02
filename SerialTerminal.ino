@@ -31,6 +31,7 @@ void loop() {
       clearEEPROM();
       break;
     case 4:
+      Serial.flush();
       resetFunc();
       break;
     case 5:
