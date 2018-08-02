@@ -31,6 +31,7 @@ void loop() {
       clearEEPROM();
       break;
     case 4:
+      clearScreen();
       Serial.flush();
       resetFunc();
       break;
@@ -130,5 +131,10 @@ void printNewLine(int count) {
   for (int i = 0; i < count; i++) {
     Serial.println();
   }
+}
+
+void clearScreen(){
+  //let us try to clear screen hyperterminal by sending ESC"[2J"
+  Serial.write("\033[2J");                    // it WORKS! in windows hyperterminal    
 }
 
