@@ -75,7 +75,7 @@ void showWriteMenu() {
   Serial.print(EEPROM.length());
   Serial.println(")");
   Serial.println("Please enter string with length of 10 for our demo.");
-  Serial.println("Only 10 chars will be saved, the reast will be ignored");
+  Serial.println("Only 10 chars will be saved, the rest will be ignored");
   Serial.print(">");
   while (Serial.available() == 0) {           //Wait for user input
   }
