@@ -138,3 +138,10 @@ void clearScreen(){
   Serial.write("\033[2J");                    // it WORKS! in windows hyperterminal    
 }
 
+void clearScreenAndHome() {
+  Serial.write(27);
+  Serial.print("[2J"); // clear screen
+  Serial.write(27); // ESC
+  Serial.print("[H"); // cursor to home
+}
+
