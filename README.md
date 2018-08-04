@@ -1,7 +1,8 @@
 # SerialTerminal
 
-Simple way on how to use Arduino serial as terminal + playing with **EEPROM**.
-Intergrating **CRUD** functions which are descriptive of the data life cycle.
+Simple way on how to use Arduino serial as terminal + playing with **EEPROM**. 
+Integrating **CRUD** functions to **EEPROM** which are descriptive of the data life cycle.
+ 
  
  
 
